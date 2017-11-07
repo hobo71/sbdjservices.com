@@ -1,0 +1,429 @@
+body{
+	font-family: "Open Sans";
+	font-style: normal;
+	font-variant: normal;
+	padding:0;
+	margin:0;
+}
+
+/*Global*/
+.container{
+	width:90%;
+	margin:auto;
+	overflow:hidden;
+}
+
+ul{
+	margin:0;
+	padding: 0;
+}
+
+.button{
+	height: 38px;
+	background: #212020;
+	border:0;
+	padding-left: 20px;
+	padding-right: 20px;
+	color:#ffffff;
+	cursor: pointer;
+	border-radius: 8px;
+	-webkit-transition-duration: 0.4s;
+	-transition-duration: 0.4s;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button:hover {
+	background-color: #720D0D;
+	color: white;
+}
+
+body{
+	margin-top: 100px;
+}
+
+/*Header*/
+
+header{
+	background:#000000;
+	color:#CCCDCF;
+	height:125px;
+	border-bottom:#720D0D 3px solid;
+	overflow:hidden;
+	position: fixed;
+	top: 0;
+	width:100%;
+}
+
+header nav{
+	text-align: center;
+}
+
+header a{
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 16px;
+	margin:0;
+	display:block;
+	padding: 5px 5px 5px 5px;
+}
+
+header a:hover{
+	color: #720D0D;
+	transition: 0.1s;
+	background: #720D0D;
+	border-color: white;
+	border:0;
+	color:#ffffff;
+	border-radius: 8px;
+	-webkit-transition-duration: 0.4s;
+	-transition-duration: 0.4s;
+}
+
+header li{
+	padding: 0 20px 0px 20px;
+	list-style: none;
+	display: inline-block;
+}
+
+header h1{
+	text-align: center;
+}
+
+#section{
+	visibility: none;
+}
+
+/*About*/
+
+#about{
+	text-align: center;
+	min-height: 550px;
+	color:#000000;
+	border-bottom: #720D0D 3px solid;
+}
+
+#about h2{
+	color: white;
+	width:80%;
+	text-align: center;
+	display: inline-block;
+	color: white;
+	z-index: +1;
+}
+
+#about .covervid-wrapper{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    z-index: -1;
+}
+#about form{
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+#about img{
+	padding-top: 75px;
+	width: 200px;
+	height: 200px;
+}
+
+#about a{
+	font-size: 25px;
+	color: white;
+	text-decoration: none;
+}
+
+#about a:hover{
+	font-size: 26px;
+	-webkit-transition-duration: 0.1s;
+	-transition-duration: 0.1s;
+
+}
+/*Showcase*/
+
+#showcase{
+	text-align: center;
+	display:inline-block;
+	background-color: #000000;
+	color: white;
+	border-top:#720D0D 3px solid;
+	border-bottom:#000000 10px solid;
+}
+
+#showcase h3{
+	margin-top: 10px;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#showcase p{
+	font-size:15px;
+}
+
+#showcase .box{
+	width: 30%;
+	padding: 25px 5px 5px 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#showcase img{
+	width: 50%;
+	height: 50%;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+/*Packages*/
+
+#packages{
+	text-align: center;
+	display: inline-block;
+	padding-bottom: 25px;
+	background: #f4f4f4;
+	width: 100%;
+}
+
+#packages button.accordion {
+    background-color: #720D0D;
+    color: #CCCDCE;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#packages button.accordion.active, #packages button.accordion:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transition: 0.5s;
+    border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+#packages.button{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#packages div.panel {
+    background-color: #CCCDCE;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#packages .box{
+	width: 20%;
+	padding: 5px 5px 5px 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#packages p, #packages h3{
+	text-align: center;
+}
+
+#packages p{
+	color: red;
+}
+
+#packages p, li{
+	font-size: 12px;
+	padding: 5px 5px 5px 5px;
+}
+
+#packages img{
+	width: 100%;
+	height: 100%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+/*Reviews*/
+
+#reviews{
+	background: url(./../img/Review.jpg);
+	background: cover;
+	color: white;
+	text-align: center;
+	border-bottom: #720D0D 3px solid;
+}
+
+#reviews h2{
+	text-align: center;
+	color: white;
+}
+
+#reviews h3{
+	text-align: center;
+	color: #f4cb42;
+}
+
+#reviews form{
+	text-align: center;
+}
+
+#reviews .box{
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+
+}
+
+#reviews .review{
+	text-align: center;
+}
+
+/*Contact*/
+
+#contact{
+	background: #f4f4f4;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+#contact .button{
+	font-size: 20px;
+}
+
+/*Footer*/
+
+footer{
+	padding:20px;
+	color:#ffffff;
+	background-color: #000000;
+	border-top:#720D0D 3px solid;
+	text-align: center;
+}
+
+footer .small{
+	font-size: 10px;
+}
+
+footer a{
+	color: white;
+}
+
+#popup{
+  position: fixed;
+  z-index:2;
+  left: 0;
+  top:0;
+  height: 100%;
+  width:100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+	padding-top: 10vw;
+}
+
+#popup .container{
+	text-align: center;
+	max-width: 40%;
+	background-image: url('../img/christmas_border.png');
+	background-size: cover;
+}
+
+#popup .popup-topbar{
+	display: grid;
+	grid-template-columns: 90% 10%;
+	background-color: #efefef;
+	margin: 0;
+	padding: 0;
+}
+
+#popup .popup-body h2{
+	margin-top: 0;
+	padding-top: 20px;
+}
+
+#popup .popup-body{
+		padding: 0 22px 22px 22px;
+		background-color: rgba(255, 255, 255, 0.5);
+}
+
+#popup i{
+	text-decoration: none;
+	color: #720D0D;
+}
+
+#popup a{
+	text-decoration: none;
+}
+
+/* Media Queries */
+
+
+@media only screen and (max-width: 500px){
+	/* Global */
+
+	#about, #packages, #reviews, #contact{
+		padding-top: 75px;
+	}
+
+	h1{
+		font-size: 15px;
+	}
+
+	/* Header */
+
+	header li{
+		padding: 0 5px 0 5px;
+	}
+
+	header{
+		height: 75px;
+		font-size: 10px;
+	}
+
+	/* About */
+	#about{
+		min-height: 100px;
+		height: 360px;
+	}
+
+	#about h2{
+		font-size: 15px;
+	}
+
+	#about img{
+		padding-top: 0px;
+		width: 100px;
+		height: 100px;
+	}
+
+	#about a{
+		padding-bottom: 200px;
+	}
+
+	/* Showcase */
+
+	#showcase .box{
+		width: 100%;
+	}
+
+	/* Packages */
+
+	#packages .box{
+		width: 80%;
+	}
+
+	/* Reviews */
+
+	#reviews .box{
+		width: 100%;
+	}
+	#popup .container{
+		max-width: 80%;
+		font-size: 0.8em;
+	}
+
+}
