@@ -45,7 +45,7 @@ body{
 
 header{
 	background:#000000;
-	color:#CCCDCF;
+	color:white;
 	height:125px;
 	border-bottom:#720D0D 3px solid;
 	overflow:hidden;
@@ -87,10 +87,6 @@ header li{
 
 header h1{
 	text-align: center;
-}
-
-#section{
-	visibility: none;
 }
 
 /*About*/
@@ -288,21 +284,29 @@ header h1{
 #contact{
 	background: #f4f4f4;
 	text-align: center;
-	padding-bottom: 25px;
+	padding-bottom: 100px;
 }
 
 #contact .button{
 	font-size: 20px;
 }
 
+#contact img{
+	max-width: 200px;
+}
+
 /*Footer*/
 
 footer{
-	padding:20px;
+	padding:5px;
 	color:#ffffff;
 	background-color: #000000;
 	border-top:#720D0D 3px solid;
 	text-align: center;
+	position: fixed;
+	bottom: 0;
+	font-size: 0.5em;
+	width: 100%;
 }
 
 footer .small{
@@ -312,6 +316,32 @@ footer .small{
 footer a{
 	color: white;
 }
+
+/* Payments */
+
+#paypal-form {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 25px;
+	color: black;
+}
+
+#paypal-form img{
+	max-width: 100px;
+	margin-top: 25px;
+	border-radius: 50px;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+#paypal-form table{
+	margin: auto;
+}
+
+.space{
+	padding-top: 60px;
+}
+
+/* Christmas Popup */
 
 #popup{
   position: fixed;
@@ -358,6 +388,7 @@ footer a{
 #popup a{
 	text-decoration: none;
 }
+
 
 /* Media Queries */
 
