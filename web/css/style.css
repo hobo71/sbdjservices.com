@@ -341,55 +341,6 @@ footer a{
 	padding-top: 60px;
 }
 
-/* Christmas Popup */
-
-#popup{
-  position: fixed;
-  z-index:2;
-  left: 0;
-  top:0;
-  height: 100%;
-  width:100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
-	padding-top: 10vw;
-}
-
-#popup .container{
-	text-align: center;
-	max-width: 40%;
-	background-image: url('../img/christmas_border.png');
-	background-size: cover;
-}
-
-#popup .popup-topbar{
-	display: grid;
-	grid-template-columns: 90% 10%;
-	background-color: #efefef;
-	margin: 0;
-	padding: 0;
-}
-
-#popup .popup-body h2{
-	margin-top: 0;
-	padding-top: 20px;
-}
-
-#popup .popup-body{
-		padding: 0 22px 22px 22px;
-		background-color: rgba(255, 255, 255, 0.5);
-}
-
-#popup i{
-	text-decoration: none;
-	color: #720D0D;
-}
-
-#popup a{
-	text-decoration: none;
-}
-
-
 /* Media Queries */
 
 
@@ -451,10 +402,6 @@ footer a{
 
 	#reviews .box{
 		width: 100%;
-	}
-	#popup .container{
-		max-width: 80%;
-		font-size: 0.8em;
 	}
 
 }
