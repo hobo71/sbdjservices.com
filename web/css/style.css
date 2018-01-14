@@ -14,7 +14,7 @@ body{
 }
 
 ul{
-	margin:0;
+	margin: auto;
 	padding: 0;
 }
 
@@ -46,7 +46,6 @@ body{
 header{
 	background:#000000;
 	color:white;
-	height:125px;
 	border-bottom:#720D0D 3px solid;
 	overflow:hidden;
 	position: fixed;
@@ -65,6 +64,7 @@ header a{
 	margin:0;
 	display:block;
 	padding: 5px 5px 5px 5px;
+	border-radius: 8px;
 }
 
 header a:hover{
@@ -74,26 +74,38 @@ header a:hover{
 	border-color: white;
 	border:0;
 	color:#ffffff;
-	border-radius: 8px;
 	-webkit-transition-duration: 0.4s;
 	-transition-duration: 0.4s;
 }
 
+header ul{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 header li{
-	padding: 0 20px 0px 20px;
+	padding: 0px 10px 0px 10px;
 	list-style: none;
-	display: inline-block;
 }
 
 header h1{
 	text-align: center;
 }
 
+header i{
+	padding: 0 3px 0 3px;
+}
+
+header img{
+	padding: 20px 0 20px 20px;
+	max-width: 125px;	
+}
+
 /*About*/
 
 #about{
 	text-align: center;
-	min-height: 550px;
 	color:#000000;
 	border-bottom: #720D0D 3px solid;
 }
@@ -121,9 +133,13 @@ header h1{
 }
 
 #about img{
-	padding-top: 75px;
 	width: 200px;
 	height: 200px;
+	padding-top: 25px;
+}
+
+#about .description{
+	padding-bottom: 25px;
 }
 
 #about a{
@@ -244,6 +260,52 @@ header h1{
 	border-top-right-radius: 5px;
 }
 
+#packages ul{
+	padding-left: 0;
+}
+
+#packages .current{
+	transition: 0.2s;
+}
+
+#packages .showing{
+	display: inline-block;
+}
+
+#packages .hiding{
+	display: none;
+}
+
+#category-desc p{
+	display: inline-block;
+	padding: 5px 5px 5px 5px;
+	border-radius: 5px;
+	background-color: white;
+}
+
+#packages .button2{
+	font-size: 1em;
+	background: #212020;
+	border:0;
+	margin: 20px 20px 0px 20px;
+	padding: 10px 20px 10px 20px;
+	color:#ffffff;
+	cursor: pointer;
+	border-radius: 8px;
+	-webkit-transition-duration: 0.4s;
+	-transition-duration: 0.4s;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#packages .button2:hover {
+	background-color: #720D0D;
+	color: white;
+}
+
+#packages li {
+	display: inline-block;
+}
+
 /*Reviews*/
 
 #reviews{
@@ -341,15 +403,23 @@ footer a{
 	padding-top: 60px;
 }
 
+/* Terms */
+#terms{
+	padding-top: 50px;
+	text-align: center;
+}
+
 /* Media Queries */
+
+@media only screen and (max-width: 800px){
+	header .social{
+		display: none;
+	}
+}
 
 
 @media only screen and (max-width: 500px){
 	/* Global */
-
-	#about, #packages, #reviews, #contact{
-		padding-top: 75px;
-	}
 
 	h1{
 		font-size: 15px;
@@ -357,33 +427,24 @@ footer a{
 
 	/* Header */
 
-	header li{
-		padding: 0 5px 0 5px;
+	header li a{
+		padding: 3px 3px 3px 3px;
+		font-size: 11px;
 	}
 
-	header{
-		height: 75px;
-		font-size: 10px;
+	header img{
+		max-width: 10vw;
 	}
 
 	/* About */
-	#about{
-		min-height: 100px;
-		height: 360px;
-	}
 
 	#about h2{
 		font-size: 15px;
 	}
 
 	#about img{
-		padding-top: 0px;
 		width: 100px;
 		height: 100px;
-	}
-
-	#about a{
-		padding-bottom: 200px;
 	}
 
 	/* Showcase */

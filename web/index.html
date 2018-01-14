@@ -1,12 +1,5 @@
-<?php session_start() ?>
 <!DOCTYPE html>
 <html>
-
-<!--Website designed and developed by Jim Cretney, https://jacre.co
-	Changelog:
-	1.0 - 13/07/17 - Inital release
-	1.0.1 - 06/08/17 - Google Analytics, UI Modification, Adverts
-!-->
 
 <head>
 	<!-- Meta !-->
@@ -50,15 +43,19 @@
 
 	<!-- Header and Navigation !-->
 	<header>
-		<div class="container">
-				<h1>Shaun Brady DJ Services</h1>
-		</div>
 		<nav>
 			<ul>
-				<li><a href="#about">Home</a></li>
-				<li><a href="#packages">Packages</a></li>
-				<li><a href="#reviews">Reviews</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<img src="./img/Nav_Logo.png">
+				<li><a class="smooth" href="#about">Home</a></li>
+				<li><a class="smooth" href="#packages">Packages</a></li>
+				<li><a class="smooth" href="#reviews">Reviews</a></li>
+				<li><a class="smooth" href="#contact">Contact</a></li>
+				<li><a href="terms.html">T&C's</a></li>
+				<li class="social">|</li>
+				<li class="social"><a href="https://www.facebook.com/shaunbradydjservices/"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+				<li class="social"><a href="https://www.instagram.com/shaunbradydjservices"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+				<li class="social"><a href="https://twitter.com/sbdjservices"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li class="social"><a class="smooth" href="#contact"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
 			</ul>
 		</nav>
 	</header>
@@ -72,7 +69,7 @@
 				</video>
 		</div>
 		<img src="./img/Logo.png">
-		<div>
+		<div class="description">
 			<h2>Based in Stockport, Shaun Brady DJ Services offer professionally personalised playlists, live mixing, lighting, visuals, and karaoke for all types of events at affordable prices!</h2>
 			<form action="#contact">
 					<button type="link" class="button">Click here to contact us for a quick quote today!</button>
@@ -81,55 +78,108 @@
 		</div>
 	</section>
 
-	<!-- Packages boxes !-->
-	<section id="packages" class="anchor">
-		<div class="box">
-			<h3>Standard DJ</h3>
-			<img src="./img/DJ_Package.jpg">
-			<button class="accordion"><strong>More</strong></button>
-			<div class="panel">
-				<ul>
-					<li>This package includes personalised playlists, individual to each customer and function.  Tracks are mixed live, and requests are welcome throughout the evening.  Karaoke is also available upon request at the event.</li>
-					<li>This standard package also includes lights and personalised visuals unique to the occasion.</li>
-					<h4><strong>Prices start <u>from</u> £120.</strong></h4>
-				</ul>
-			</div>
+	<section id="packages">
+		<div class="package-menu">
+			<ul class="selection-buttons">
+				<li class="package-type button2" onclick="active(0)">Packages</li>
+				<li class="package-type button2" onclick="active(1)">Add-ons</li>
+			</ul>
 		</div>
-			<div class="box">
-			<h3>Live Music</h3>
-			<img src="./img/Live_Package.jpg">
-			<button class="accordion"><strong>More</strong></button>
-			<div class="panel">
-				<p>This packages includes everything listed in the Standard DJ Package.</p>
-				<ul>
-					<li>Solo saxophone performances of classics such as ‘Careless Whisper,’ ‘A Million Love Songs,’ and ‘Baker Street,’ are subject to a small extra cost.</li>
-                    <li>Other live music performances are available subject to extra cost, as well as the availability of local bands and musicians.</li>
-				</ul>
-				<h4><strong>Prices start <u>from</u> £150.</strong></h4>
-			</div>
-		</div>
-		<div class="box">
-			<h3>Photography</h3>
-			<img src="./img/Photography_Package.jpg">
-			<button class="accordion"><strong>More</strong></button>
-			<div class="panel">
-				<p>This packages includes everything listed in the Standard DJ Package.</p>
-				<ul>
-					<li>This photography package is subject to the availability of external photography company - (Owen Peters Photography).  Professional action shots will be taken throughout the function, and these images will be uploaded to Facebook which can be downloaded for free.</li>
-					<li>A Photo-booth is also available subject to extra cost and availability.  This includes personalised frames and party props.  These images will be posted straight to Facebook so you can download to your heart's content!</li>
-				</ul>
-				<h4><strong>Prices start <u>from</u> £180.</strong></h4>
-			</div>
-		</div>
-		<div class="box">
-			<h3>Ultimate</h3>
-			<img src="./img/Ultimate_Package.jpg">
-			<button class="accordion"><strong>More</strong></button>
-			<div class="panel">
-				<p>This ultimate package contains everything listed in all of the other packages.</p>
-				<h4><strong>Prices start <u>from</u> £200.</strong></h4>
-			</div>
-		</div>
+		<div class="package-grid">
+				<!-- Main Packages !-->
+				<div class="package-information 0 showing">
+					<div class="box">
+						<h3>Standard DJ</h3>
+						<img src="./img/DJ_Package.jpg">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<ul>
+								<li>This package includes personalised playlists, individual to each customer and function.  Tracks are mixed live, and requests are welcome throughout the evening.  Karaoke is also available upon request at the event.</li>
+								<li>This standard package also includes lights and personalised visuals unique to the occasion.</li>
+								<h4><strong>Prices start <u>from</u> £130.</strong></h4>
+							</ul>
+						</div>
+					</div>
+						<div class="box">
+						<h3>Live Music</h3>
+						<img src="./img/Live_Package.jpg">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<p>This packages includes everything listed in the Standard DJ Package.</p>
+							<ul>
+								<li>Solo saxophone performances of classics such as ‘Careless Whisper,’ ‘A Million Love Songs,’ and ‘Baker Street,’ are subject to a small extra cost.</li>
+					            <li>Other live music performances are available subject to extra cost, as well as the availability of local bands and musicians.</li>
+							</ul>
+							<h4><strong>Prices start <u>from</u> £150.</strong></h4>
+						</div>
+					</div>
+					<div class="box">
+						<h3>Photography</h3>
+						<img src="./img/Photography_Package.jpg">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<p>This packages includes everything listed in the Standard DJ Package.</p>
+							<ul>
+								<li>This photography package is subject to the availability of external photography company - (Owen Peters Photography).  Professional action shots will be taken throughout the function, and these images will be uploaded to Facebook which can be downloaded for free.</li>
+								<li>A Photo-booth is also available subject to extra cost and availability.  This includes personalised frames and party props.  These images will be posted straight to Facebook so you can download to your heart's content!</li>
+							</ul>
+							<h4><strong>Prices start <u>from</u> £200.</strong></h4>
+						</div>
+					</div>
+					<div class="box">
+						<h3>Kids Package</h3>
+						<img src="./img/Kids_Package.png">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<ul>
+								<li>This package includes personalised playlists containing songs from all of their favourite movies!</li>
+								<li>Popular party games of your choice can be played throughout the event and a lively, enjoyable atmosphere for both kids and parents alike is guaranteed!</li>
+							</ul>
+
+							<h4><strong>Prices start <u>from</u> £60.</strong></h4>
+						</div>
+					</div>
+				</div>
+
+				<!-- Addons !-->
+				<div class="package-information 0 hiding">
+					<div class="box">
+						<h3>Prop Frames</h3>
+						<img src="./img/Frame_Addon.png">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<ul>
+								<li>Our brand new prop frame is perfect for any party / event. Take selfies inside the frame with your guests, and forever remember your party with your own personalised message on the frame!</li>
+								<li>This Add-On is available as a stand alone extra to your order, and can also be added to the Photography Package!</li>
+								<h4><strong>Price: £10</strong></h4>
+							</ul>
+						</div>
+					</div>
+						<div class="box">
+						<h3>Presentation</h3>
+						<img src="./img/Presentation_Addon.png">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<ul>
+								<li>Send us all of your favourite pictures with your guests before the event, and we will create a powerpoint presentation which will be displayed on a projector throughout the party!</li>
+					            <li>This Add-On is available as a stand alone extra to your order, and can also be added to the Photography Package combined with the images taken at the function!</li>
+							</ul>
+							<h4><strong>Price: £20</strong></h4>
+						</div>
+					</div>
+					<div class="box">
+						<h3>Scrapbook</h3>
+						<img src="./img/Scrapbook_Addon.png">
+						<button class="accordion"><strong>More</strong></button>
+						<div class="panel">
+							<ul>
+								<li>Why not let us create a souvenir of your event. We will create a scrapbook with messages from your guests taken at the party, as well as pictures taken by our photographer on the evening.</li>
+								<li>Only available with the Photography Package! The scrapbook will be completed and posted within a week of the event!</li>
+							</ul>
+							<h4><strong>Price: £20</strong></h4>
+						</div>
+					</div>
+				</div>
 	</section>
 
 	<!-- Features showcase !-->
@@ -202,45 +252,73 @@
 		</div>
 	</section>
 
-<!-- Packages dropdown animation !-->
-<script type="text/javascript">
-var acc = document.getElementsByClassName("accordion");
-var i;
+	<!-- Packages dropdown animation !-->
+	<script type="text/javascript">
+	var acc = document.getElementsByClassName("accordion");
+	var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  }
-}
-</script>
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].onclick = function() {
+	    this.classList.toggle("active");
+	    var panel = this.nextElementSibling;
+	    if (panel.style.maxHeight){
+	      panel.style.maxHeight = null;
+	    } else {
+	      panel.style.maxHeight = panel.scrollHeight + "px";
+	    }
+	  }
+	}
+	</script>
 
-<!-- Top cover video !-->
-<script type="text/javascript">
-	$('.covervid-video').coverVid(1920, 1080);</script>
+	<!-- Top cover video !-->
+	<script>
+		$('.covervid-video').coverVid(1920, 1080);
+	</script>
 
-<!-- Smooth Scroll !-->
-<script type="text/javascript">
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
- // smooth scroll
-$('header a').click(function(e) {
-  e.preventDefault();
-  var section = $(this).attr('href');
-  $('html,body').unbind().animate({scrollTop: $(section).offset().top-128},'slow');
-});
-}
-</script>
+	<!-- Smooth Scroll !-->
+	<script>
+		$('header .smooth').click(function(e) {
+		  e.preventDefault();
+		  var section = $(this).attr('href');
+		  $('html,body').unbind().animate({scrollTop: $(section).offset().top-95},'slow');
+		});
+	</script>
 
-<!-- Footer !-->
-<footer>
-	<p></p>
-	<p> Shaun Brady DJ Services, Copyright 2017 - Shaun Brady DJ Services is protected under Public Liability Insurance. - Website designed, developed and maintained by <a href="https://jacre.co">Jacre Web Design</a></p>
-</footer>
+	<!-- Packages !-->
+	<script>
+	function active(id){
+		var menuList = document.getElementsByClassName('package-type');
+		var allpackages = document.getElementsByClassName('package-information');
+
+		for (i = 0; menuList[i]; i++){
+			if (menuList[i] == menuList[id]){
+				menuList[i].classList.add("current");
+
+			}
+			else{
+				menuList[i].classList.remove("current");
+
+			}
+		}
+
+		for (i = 0; allpackages[i]; i++){
+			if (allpackages[i] == allpackages[id]){
+				allpackages[i].classList.add("showing");
+				allpackages[i].classList.remove("hiding");
+			}
+			else{
+				allpackages[i].classList.add("hiding");
+				allpackages[i].classList.remove("showing");
+			}
+		}
+	}
+	</script>
+
+	<!-- Footer !-->
+	<footer>
+		<p></p>
+		<p>Shaun Brady DJ Services, Copyright 2017 - Shaun Brady DJ Services is protected under Public Liability Insurance. - Website designed, developed and maintained by <a href="https://jacre.co">Jacre Web Design</a></p>
+	</footer>
 </body>
 
 </html>
