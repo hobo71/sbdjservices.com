@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SBDJServices Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header class="mb-3">
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="../index.html" class="navbar-brand">
+                SBDJServices | <small>Admin</small>
+            </a>
+            <!-- <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"></a>
+                </li>
+            </ul> -->
+        </nav>
+    </header>
+
+    <section id="clients">
+        <div class="container">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2>Client | <small id="client-name">Test</small></h2>
+                    <span>Date Created: <small id="date-created">12/12/12</small></span>
+                    <span>Client ID: <small id="client-id"></small>10101</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="details" class="mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Event Profile</h5>
+                            <p id="client-event-description" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p>Event Date: <small id="client-event-date"></small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Client Details</h5>
+                            <p>Deposit Cost: <small id="client-deposit-cost">£50 </small><span class="badge badge-success">Paid</span></p>
+                            <p>Event Date: <small id="client-event-date"></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="playlist">
+        <div class="container">
+            <h2>Playlist</h2>
+            <div class="row">
+                <div class="col-6">
+                    <div class="clients-form card mb-3">
+                        <div class="card-body">
+                            <div class="card-text">
+                                Add a Playlist Item
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" id="new-note" class="form-control" placeholder="New playlist item...">
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary btn-block" onclick="addNote()" id="add-note-button">Save item</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="notes">
+                            <table class="table" id="client-table">
+                                <thead>
+                                    <tr>
+                                        <th>Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="clients-form card mb-3">
+                        <div class="card-body">
+                            <div class="card-text">
+                                Upload an image
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="btn btn-success btn-block" onclick="addNote()" id="add-note-button">Upload images</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-warning btn-block" onclick="addNote()" id="add-note-button">Download all images</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="notes">
+                            <table class="table" id="client-table">
+                                <thead>
+                                    <tr>
+                                        <th>Image List</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function addButtons(){
+            // Get all rows in the Clients table
+            var rows = document.getElementsByClassName("edit-client-button");
+            
+            // Loop through rows, add the onclick function to each button with correct user ID
+            for (i = 0; i < rows.length; i++){
+                rows[i].setAttribute("onclick","editClient(\""
+                +(i+1)+"\")");
+            }
+        }
+    </script>
+
+    <!-- Playlist Script !-->
+
+    <script>
+        window.onload = function() {
+            showNotes()
+        };
+
+        function addNote(){
+            var noteContent = document.getElementById('new-note').value;
+
+            if (typeof(Storage) !== "undefined"){
+                storeNote(noteContent);
+                console.log(noteContent);
+            } else {
+                // No storage :(                
+            };
+
+            function storeNote(noteContent) {
+                //Check if notes is null
+                if(localStorage.getItem('notes') === null){
+                    // Initialise the array and push item, then store it
+                    var notes = [];
+                    notes.push(noteContent);
+                    localStorage.setItem('notes', JSON.stringify(notes));
+                } else {
+                    // Get notes, push item and then re-store items
+                    var notes = JSON.parse(localStorage.getItem('notes'));
+                    notes.push(noteContent);
+                    localStorage.setItem('notes', JSON.stringify(notes));
+                };
+
+            showNotes();
+            };
+        }
+
+        function removeNote(noteContent){
+            var notes = JSON.parse(localStorage.getItem('notes'));
+            
+            for (var i = 0; i < notes.length; i++){
+                if (notes[i] == noteContent){
+                    notes.splice(i, 1);
+                }
+            }
+
+            localStorage.setItem('notes', JSON.stringify(notes));
+
+            showNotes();
+        }
+
+        function showNotes(noteID){
+            var notes = JSON.parse(localStorage.getItem('notes'));
+
+            var tableBody = document.getElementById("table-body");
+
+            tableBody.innerHTML = '';
+
+            for (var i = 0; i < notes.length; i++){
+                var noteContent = notes[i];
+
+                tableBody.innerHTML += '<tr><td>'+
+                                    noteContent+
+                                    '<a onclick="removeNote(\''+noteContent+'\')" class="btn btn-danger ml-3">X</a>'+
+                                    '</td></tr>';
+            };
+        }
+    </script>
+
+    <script>
+        //Scripts to run when page is loaded
+        window.onload = addButtons();
+    </script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
