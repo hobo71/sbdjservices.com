@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <h2>Client | <small id="client-name">Test</small></h2>
                     <span>Date Created: <small id="date-created">12/12/12</small></span>
-                    <span>Client ID: <small id="client-id"></small>10101</span>
+                    <span>Client ID: <small id="client-id"></small></span>
                 </div>
             </div>
         </div>
@@ -56,7 +56,6 @@
                         <div class="card-body">
                             <h5 class="card-title">Client Details</h5>
                             <p>Deposit Cost: <small id="client-deposit-cost">£50 </small><span class="badge badge-success">Paid</span></p>
-                            <p>Event Date: <small id="client-event-date"></small></p>
                         </div>
                     </div>
                 </div>
@@ -150,9 +149,6 @@
     <!-- Playlist Script !-->
 
     <script>
-        window.onload = function() {
-            showNotes()
-        };
 
         function addNote(){
             var noteContent = document.getElementById('new-note').value;
@@ -196,7 +192,7 @@
             showNotes();
         }
 
-        function showNotes(noteID){
+        function showNotes(){
             var notes = JSON.parse(localStorage.getItem('notes'));
 
             var tableBody = document.getElementById("table-body");
@@ -215,8 +211,62 @@
     </script>
 
     <script>
+        function getClient(){
+            // Get user ID from query string
+            let urlID = (new URL(document.location)).searchParams;
+            let clientID = urlID.get("id");
+            console.log(clientID);
+
+            // Get users from localStorage
+            var users = JSON.parse(localStorage.getItem('users'));
+            
+            // Match requested ID to user in users
+            for (i = 0; i < users[0].length; i++){
+                if (clientID == users[0][i].id){
+                    var client = users[0][i];
+                    showDetails(client);
+                } else {
+                    continue;
+                }
+            }
+        }
+
+        function showDetails(client){
+            console.log(client);
+            document.getElementById('client-name').innerHTML = client.name;
+            document.getElementById('client-id').innerHTML = client.id;
+            document.getElementById('date-created').innerHTML = client.dateCreated;
+            document.getElementById('client-event-description').innerHTML = client.eventDescription;
+            document.getElementById('client-event-date').innerHTML = client.eventDate;
+            document.getElementById('client-deposit-cost').innerHTML = client.depositCost;
+        }
+    </script>
+
+    <script>
         //Scripts to run when page is loaded
-        window.onload = addButtons();
+        window.onload = showNotes();
+        window.onload = getClient();
+    </script>
+
+    <script>
+        //Debug Scripts
+        function debugAddUsersArray(){
+            usersArray = [{'id':'1', 'name':'Barry Schott', 'dateCreated':'02/03/2018', 'eventDescription':'A great party!', 'eventDate':'22/10/2018', 'depositCost':'£50', 'depositStatus':'0'}, 
+            {'id':'2', 'name':'Larry Coont', 'dateCreated':'01/02/2018', 'eventDescription':'Mental sesh', 'eventDate':'21/09/2018', 'depositCost':'£100', 'depositStatus':'1'}, 
+            {'id':'3', 'name':'Jim Bigby', 'dateCreated':'22/10/1998', 'eventDescription':'Turning old af', 'eventDate':'22/10/2019', 'depositCost':'£120', 'depositStatus':'0'}, ];
+
+            if(localStorage.getItem('users') === null){
+                    // Initialise the array and push item, then store it
+                    var users = [];
+                    users.push(usersArray);
+                    localStorage.setItem('users', JSON.stringify(users));
+                } else {
+                    // Get notes, push item and then re-store items
+                    var users = JSON.parse(localStorage.getItem('users'));
+                    users.push(usersArray);
+                    localStorage.setItem('users', JSON.stringify(users));
+                };
+        }
     </script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
