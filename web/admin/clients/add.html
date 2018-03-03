@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SBDJServices Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="../index.html" class="navbar-brand">
+                SBDJServices | <small>Admin</small>
+            </a>
+            <!-- <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"></a>
+                </li>
+            </ul> -->
+        </nav>
+    </header>
+
+    <section id="welcome-message">
+        <div class="alert alert-danger">
+            Welcome to SBDJServices Admin.
+        </div>
+    </section>
+
+    <section id="add-form">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Add a new user</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control" id="clientName">
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Event Description</label>
+                            <textarea type="text" class="form-control" id="client-event-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Event Date</label>
+                            <input type="text" class="form-control" id="client-event-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Deposit Cost</label>
+                            <input type="text" class="form-control" id="deposit-cost">
+                        </div>
+                        <button type="submit" class="btn btn-primary" onclick="createUser()">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function createUser(){
+            // Get form data
+            var name = document.getElementById('clientName').value;
+            var description = document.getElementById('client-event-description').value;
+            var eventDate = document.getElementById('client-event-date').value;
+            var description = document.getElementById('client-event-description').value;
+            var deposit = document.getElementById('deposit-cost').value;
+            var dateCreated = new Date();
+
+            var users = JSON.parse(localStorage.getItem('users'));
+            
+            if (users == null){
+                var newID = 1;
+            } else {
+                // This doesn't work yet
+                var newID = users.length[0]+1;
+            }
+
+            // Build new entry
+            var usersArray = {
+                'id':newID, 
+                'name':name, 
+                'dateCreated':dateCreated, 
+                'eventDescription':description,
+                'eventDate':eventDate,
+                'deposit':deposit
+            }
+            
+            if(localStorage.getItem('users') === null){
+                // Initialise the array and push item, then store it
+                var users = [];
+                users.push(usersArray);
+                localStorage.setItem('users', JSON.stringify(users));
+            } else {
+                // Get notes, push item and then re-store items
+                var users = JSON.parse(localStorage.getItem('users'));
+                users.push(usersArray);
+                localStorage.setItem('users', JSON.stringify(users));
+            };
+            
+            // location.href="../index.html";
+
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
